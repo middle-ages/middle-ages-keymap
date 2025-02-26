@@ -9,7 +9,8 @@ enum planck_layers {
   _L5_UNICODE,
   _L6_NAV,
   _L7_MOUSE,
-  _L8_ADJUST
+  _L8_ADJUST,
+  _L9_HELP     // internal layer used for showing per-layer help
 };
 
 enum planck_keycodes {                  // layers toggle keys
@@ -19,6 +20,18 @@ enum planck_keycodes {                  // layers toggle keys
   L4,                                   //         4. RAISE
   L5,                                   //         5. UNICODE
   L6,                                   //         6. NAV
+                                        //         7. MOUSE (toggled in tap-dance)
+                                        //         8. ADJUST = LOWER + RAISE
+                                        // layer help keys on _L9_HELP
+  HELP0,                                //
+  HELP1,                                //
+  HELP2,                                //
+  HELP3,                                //
+  HELP4,                                //
+  HELP5,                                //
+  HELP6,                                //
+  HELP7,                                //
+  HELP8,                                //
                                         // mod-tap keycodes
                                         //         TAP              SHIFT
   ATAMP,                                //          @                 &
@@ -26,7 +39,6 @@ enum planck_keycodes {                  // layers toggle keys
   UNDER,                                //          _                 ⌃
   CTRLA,                                //         ⌃a
                                         // macros
-  HELP,                                 // • print keymap
   CWLFT,                                // • ⌃w←
   CWRGT,                                // • ⌃w→
   CWUP,                                 // • ⌃w↑
@@ -55,6 +67,7 @@ enum {                                  // tap-dance keycodes               TAP�
 #define L4     LT(_L4_RAISE,   KC_PMNS) //          -     L4_RAISE
 #define L5     LT(_L5_UNICODE, KC_F19)  //        F19     L5_UNICODE
 #define L6     LT(_L6_NAV,     KC_TAB)  //          ⇥     L6_NAV
+#define HELP   OSL(_L9_HELP)            // one-shot help layer
                                         // mod-tap keys
                                         //         TAP     HOLD     SHIFT
 #define SFT1   SFT_T(ATAMP)             //          @     ⇧           &
@@ -91,16 +104,12 @@ enum {                                  // tap-dance keycodes               TAP�
                                         // tap-dance keys
 #define TDCOS TD(COS)                   //          :                 ;      ;             ::
 #define TDETQ TD(ETQ)                   //          ⎋     L7_MOUSE    ~     ⌃wq         ⎋:wa\n:qa\n
-#define TDDRX TD(DRX)                   //          $       CTRL      !     ⌃w
+#define TDDRX TD(DRX)                   //          $      CTRL       !     ⌃w
 #define TDCPA TD(CPA)                   //         ⌃p       ✦               ⌃a⎋
 #define TDBEQ TD(BEQ)                   //          \       ⌥         |     ⎋:
                                         // modded keys
 #define SCC    S(C(KC_C))               //          ⇪c
 #define SCV    S(C(KC_V))               //          ⇪v
-#define CST    S(C(KC_C))               //          ⇪t
-#define CC     C(KC_C)                  //          ⌃c
-#define CV     C(KC_V)                  //          ⌃v
-#define CT     C(KC_T)                  //          ⌃t
 #define CS6    LCTL(KC_CIRC)            //          ⇪6
 #define SGS    S(G(KC_S))               //          ⇧◆s
 #define AF4    A(KC_F4)                 //          ⎇F4

@@ -31,14 +31,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    // macros
-    case HELP:
-      if (pressed) {
-        help();
-        return false;
-      }
-      break;
-
     // ⌃w arrows
     case CWLFT:
       if (pressed) {
@@ -99,6 +91,62 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case M_MEQL:
       if (pressed) {
         SEND_STRING(" >= ");
+        return false;
+      }
+      break;
+
+    // layer help
+    case HELP0:
+      if (pressed) {
+        help0();
+        return false;
+      }
+      break;
+    case HELP1:
+      if (pressed) {
+        help1();
+        return false;
+      }
+      break;
+    case HELP2:
+      if (pressed) {
+        help2();
+        return false;
+      }
+      break;
+    case HELP3:
+      if (pressed) {
+        help3();
+        return false;
+      }
+      break;
+    case HELP4:
+      if (pressed) {
+        help4();
+        return false;
+      }
+      break;
+    case HELP5:
+      if (pressed) {
+        help5();
+        return false;
+      }
+      break;
+    case HELP6:
+      if (pressed) {
+        help6();
+        return false;
+      }
+      break;
+    case HELP7:
+      if (pressed) {
+        help7();
+        return false;
+      }
+      break;
+    case HELP8:
+      if (pressed) {
+        help8();
         return false;
       }
       break;
