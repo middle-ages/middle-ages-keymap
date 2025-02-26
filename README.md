@@ -2,6 +2,12 @@
 
 QMK configuration for a Planck orthogonal 4×12 keyboard
 
+## Using
+
+Create a QMK _userspace_ dir as [explained
+here](https://docs.qmk.fm/feature_userspace) and place this folder in 
+`qmk_userspace/keyboards/planck/rev7/[USERNAME]`.
+
 ## Features
 
 1. Layers
