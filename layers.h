@@ -45,15 +45,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, KC_0,    _______, CBTB,    CTB,     _______, _______, KC_APP,  KC_VOLD, KC_VOLU
 ),
 /**
- *      Os₂ ┏━━━━━━━━━━━━━━━━━━━━━━━┯━━━┯━━━┯━━━┯━━━┯━━━┯━━━┓
- *          ┃                       ┊⌃w1┊⌃w2┊⌃w3┊⌃w4┊   ┊◆⇥ ┃
- *          ┃       ┌───┐           ├───┼───┼───┼───┤   └───┨
+ *      Os₂ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━┓
+ *          ┃                                           ┊◆⇥ ┃
+ *          ┃       ┌───┐           ┌───┬───┬───┬───┐   └───┨
  *          ┃       ┊📷 ┊           ┊⌃◆←┊⌃◆↓┊⌃◆↑┊⌃◆→┊       ┃
  *          ┃       └───┼───┬───┬───┼───┼───┼───┴───┘       ┃
  *          ┃           ┊ ⟳ ┊ ⤺ ┊ ⤻ ┊⇪6 ┊⌃o ┊               ┃
  *          ┃           └───┴───┼───┼───┼───┤               ┃
  *          ┃                   ┊L2 ┊⎇⇤ ┊⎇⇥ ┊               ┃
  *          ┗━━━━━━━━━━━━━━━━━━━┷━━━┷━━━┷━━━┷━━━━━━━━━━━━━━━┛
+ *
  */
 [_L2_OS] = LAYOUT_planck_grid(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, GTAB,
@@ -83,16 +84,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *          ┃   ┊ “ ┊ ” ┊F7 ┊F8 ┊F9 ┊                       ┃
  *          ┃   └───┴───┼───┼───┼───┤                   ┌───┨
  *          ┃           ┊F4 ┊F5 ┊F6 ┊                   ┊->␣┃
- *          ┃   ┌───┬───┼───┼───┼───┼───┬───┬───┬───┬───┼───┨
- *          ┃   ┊F12┊F11┊F1 ┊F2 ┊F3 ┊⇪6 ┊⌃o ┊<=␣┊>=␣┊!==┊=>␣┃
- *          ┃   └───┴───┼───┼───┴───┴───┼───┼───┴───┼───┼───┨
+ *          ┃   ┌───┬───┼───┼───┼───┤       ┌───┬───┬───┼───┨
+ *          ┃   ┊F12┊F11┊F1 ┊F2 ┊F3 ┊       ┊<=␣┊>=␣┊!==┊=>␣┃
+ *          ┃   └───┴───┼───┼───┴───┘   ┌───┼───┴───┼───┼───┨
  *          ┃           ┊F10┊           ┊L4 ┊       ┊===┊   ┃
  *          ┗━━━━━━━━━━━┷━━━┷━━━━━━━━━━━┷━━━┷━━━━━━━┷━━━┷━━━┛
  */
 [_L4_RAISE] = LAYOUT_planck_grid(
   _______, M_DQL,   M_DQR,   KC_F7,   KC_F8,   KC_F9,   _______, _______, _______, _______, _______, _______,
   _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   _______, _______, _______, _______, _______, M_ARR,
-  _______, KC_F12,  KC_F11,  KC_F1,   KC_F2,   KC_F3,   CS6,     C(KC_O), M_LEQL,  M_MEQL,  M_NEQL,  M_DARR,
+  _______, KC_F12,  KC_F11,  KC_F1,   KC_F2,   KC_F3,   _______, _______, M_LEQL,  M_MEQL,  M_NEQL,  M_DARR,
   _______, _______, _______, KC_F10,  _______, _______, _______, _______, _______, _______, M_EQL, _______
 ),
 /**
@@ -190,9 +191,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Mb₁ MS_BTN1   Mb₂ MS_BTN2    Mb₃ MS_BTN3    ⎄  KC_F19        ⎉ KC_BRK      ▤ KC_APP     ⎙  KC_PSCR     ☾ KC_SLEP     ␣ KC_SPC        ⎋ KC_ESC
  *   ⌫ KC_BSPC     ⌦ KC_DEL       ⇥ KC_TAB      ⇤ S(KC_TAB)     ⤺ QK_AREP     ⤻ QK_REP    🔆- UG_VALD   🔆+ UG_VALU    📷 S(G(KC_S))    🔒KC_SCRL
  *  🔉 KC_VOLD    🔊 KC_VOLU    TT- DT_DOWN   TT+ DT_UP      TT⎙  DT_PRNT     🄰 CW_TOGG
- *
- * unicode, keyboard lock/unlock, print key name, print key map, RGB & Audio, tmux, .. sentence end, ctrl minus/plus, layer/mod indicators
- * move symbols
- *
  */
 
