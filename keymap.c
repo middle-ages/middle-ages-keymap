@@ -2,12 +2,12 @@
 
 #include "print.h"
 
-#include "keyboards/planck/rev7/keymaps/middle-ages/helpers.h"
-#include "keyboards/planck/rev7/keymaps/middle-ages/keys.h"
-#include "keyboards/planck/rev7/keymaps/middle-ages/colors.h"
-#include "keyboards/planck/rev7/keymaps/middle-ages/layers.h"
-#include "keyboards/planck/rev7/keymaps/middle-ages/tap_dance.h"
-#include "keyboards/planck/rev7/keymaps/middle-ages/help.h"
+#include "./helpers.h"
+#include "./keys.h"
+#include "./colors.h"
+#include "./layers.h"
+#include "./tap_dance.h"
+#include "./help.h"
 
 const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {4, 6, 12};
 
