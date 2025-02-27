@@ -7,6 +7,7 @@
 #include "./colors.h"
 #include "./layers.h"
 #include "./tap_dance.h"
+#include "./macros.h"
 #include "./help.h"
 
 const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {4, 6, 12};
@@ -30,71 +31,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
   }
 
+  if (keycode >= FIRST_MACRO && keycode <= LAST_MACRO) {
+    if (pressed) { dispatch_macro(keycode); }
+    return false;
+  }
+
   switch (keycode) {
-    // ⌃w arrows
-    case CWLFT:
-      if (pressed) {
-        SEND_STRING(SS_LCTL("w") SS_TAP(X_LEFT));
-        return false;
-      }
-      break;
-    case CWRGT:
-      if (pressed) {
-        SEND_STRING(SS_LCTL("w") SS_TAP(X_RIGHT));
-        return false;
-      }
-      break;
-    case CWUP:
-      if (pressed) {
-        SEND_STRING(SS_LCTL("w") SS_TAP(X_UP));
-        return false;
-      }
-      break;
-    case CWDN:
-      if (pressed) {
-        SEND_STRING(SS_LCTL("w") SS_TAP(X_DOWN));
-        return false;
-      }
-      break;
-
-    // programming bigrams and trigrams
-    case M_ARR:
-      if (pressed) {
-        SEND_STRING("->");
-        return false;
-      }
-      break;
-    case M_DARR:
-      if (pressed) {
-        SEND_STRING(" => ");
-        return false;
-      }
-      break;
-    case M_EQL:
-      if (pressed) {
-        SEND_STRING(" === ");
-        return false;
-      }
-      break;
-    case M_NEQL:
-      if (pressed) {
-        SEND_STRING(" !== ");
-        return false;
-      }
-      break;
-    case M_LEQL:
-      if (pressed) {
-        SEND_STRING(" <= ");
-        return false;
-      }
-      break;
-    case M_MEQL:
-      if (pressed) {
-        SEND_STRING(" >= ");
-        return false;
-      }
-      break;
-
     // layer help
     case HELP0:
       if (pressed) {

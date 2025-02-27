@@ -23,14 +23,14 @@ enum planck_keycodes {                  // layers toggle keys
                                         //         7. MOUSE (toggled in tap-dance)
                                         //         8. ADJUST = LOWER + RAISE
                                         // layer help keys on _L9_HELP
-  HELP0,                                //
-  HELP1,                                //
-  HELP2,                                //
-  HELP3,                                //
-  HELP4,                                //
-  HELP5,                                //
-  HELP6,                                //
-  HELP7,                                //
+  HELP0,                                // layer 1 help
+  HELP1,                                //       2
+  HELP2,                                //       3
+  HELP3,                                //       4
+  HELP4,                                //       5
+  HELP5,                                //       6
+  HELP6,                                //       7
+  HELP7,                                //       8
   HELP8,                                //
                                         // mod-tap keycodes
                                         //         TAP              SHIFT
@@ -39,16 +39,17 @@ enum planck_keycodes {                  // layers toggle keys
   UNDER,                                //          _                 ⌃
   CTRLA,                                //         ⌃a
                                         // macros
-  CWLFT,                                // • ⌃w←
-  CWRGT,                                // • ⌃w→
-  CWUP,                                 // • ⌃w↑
-  CWDN,                                 // • ⌃w↓
-  M_ARR,                                // • “-” “>”
-  M_DARR,                               // • “=” “>”
-  M_EQL,                                // • “=” “=” “=”
-  M_NEQL,                               // • “!” “=” “=”
-  M_LEQL,                               // • “<” “=”
-  M_MEQL,                               // • “>” “=”
+  CWLFT,                                //  1. ⌃w←
+  CWRGT,                                //  2. ⌃w→
+  CWUP,                                 //  3. ⌃w↑
+  CWDN,                                 //  4. ⌃w↓
+  M_ARR,                                //  5. “-” “>”
+  M_DARR,                               //  6. “=” “>”
+  M_EQL,                                //  7. “=” “=” “=”
+  M_NEQL,                               //  8. “!” “=” “=”
+  M_LEQL,                               //  9. “<” “=”
+  M_MEQL,                               // 10. “>” “=”
+                                        // unicode macros
   M_DQL,                                // • “
   M_DQR,                                // • ”
 };                                      //
@@ -59,7 +60,12 @@ enum {                                  // tap-dance keycodes               TAP�
   DRX,                                  //          $       ⌃         !     ⌃w
   CPA,                                  //         ⌃p       ✦               ⌃a⎋
   BEQ                                   //          \       ⌥         |     ⎋:
-};                                      // layer-tap keys
+};                                      //
+                                        //
+#define FIRST_MACRO CWLFT               // first and last macro for macro dispatch
+#define LAST_MACRO  M_MEQL              //
+                                        // layer-tap keys
+                                        //
                                         //         TAP     HOLD     SHIFT
 #define L1     LT(_L1_LOWER,   KC_PPLS) //          +     L1_LOWER
 #define L2     LT(_L2_OS,      UNDER)   //          _     L2_OS
