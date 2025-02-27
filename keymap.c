@@ -36,63 +36,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  switch (keycode) {
-    // layer help
-    case HELP0:
-      if (pressed) {
-        help0();
-        return false;
-      }
-      break;
-    case HELP1:
-      if (pressed) {
-        help1();
-        return false;
-      }
-      break;
-    case HELP2:
-      if (pressed) {
-        help2();
-        return false;
-      }
-      break;
-    case HELP3:
-      if (pressed) {
-        help3();
-        return false;
-      }
-      break;
-    case HELP4:
-      if (pressed) {
-        help4();
-        return false;
-      }
-      break;
-    case HELP5:
-      if (pressed) {
-        help5();
-        return false;
-      }
-      break;
-    case HELP6:
-      if (pressed) {
-        help6();
-        return false;
-      }
-      break;
-    case HELP7:
-      if (pressed) {
-        help7();
-        return false;
-      }
-      break;
-    case HELP8:
-      if (pressed) {
-        help8();
-        return false;
-      }
-      break;
+  if (keycode >= HELP0 && keycode <= HELP8) {
+    if (pressed) { dispatch_help(keycode); }
+    return false;
+  }
 
+  switch (keycode) {
     // unicode
     case M_DQL:
       if (pressed) {
