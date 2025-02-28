@@ -11,6 +11,7 @@
 #include "./help.h"
 
 const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {4, 6, 12};
+bool is_one_shot_on = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   bool pressed = record->event.pressed;
@@ -79,7 +80,7 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // set layer indicator and tri layer
 layer_state_t layer_state_set_user(layer_state_t state) {
-  if (!is_caps_word_on()) {
+  if (!is_caps_word_on() && !is_one_shot_on) {
     set_layer_indicator(state);
   }
   return update_tri_layer_state(state, _L1_LOWER, _L4_RAISE, _L8_ADJUST);
@@ -91,6 +92,20 @@ void caps_word_set_user(bool active) {
     rgblight_mode(RGBLIGHT_MODE_SNAKE);
   } else {
     rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
-    rgblight_setrgb(CLR_PINK);
+    rgblight_setrgb(CLR_DIM);
+  }
+}
+
+// breathing animation on help
+void oneshot_layer_changed_user(uint8_t layer) {
+  if (layer == _L9_HELP) {
+    is_one_shot_on = true;
+    rgblight_mode(RGBLIGHT_MODE_BREATHING + 3);
+  }
+
+  if (!layer) {
+    is_one_shot_on = false;
+    rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+    rgblight_setrgb(CLR_DIM);
   }
 }
