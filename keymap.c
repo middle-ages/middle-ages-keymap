@@ -8,6 +8,7 @@
 #include "./layers.h"
 #include "./tap_dance.h"
 #include "./macros.h"
+#include "./unicode_macros.h"
 #include "./help.h"
 
 const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {4, 6, 12};
@@ -15,25 +16,13 @@ bool is_one_shot_on = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   bool pressed = record->event.pressed;
-  if (pressed && record->tap.count) { // custom mod/layer-taps
-    switch (keycode) { //                   tap  shift hold
-      case L2: //                            _          L2
-        tap_code16(KC_UNDS);
-        return false;
-      case SFT1: //                          @     &    ⇧₁
-        tap_or_shift(KC_AT, KC_AMPR);
-        return false;
-      case MTA: //                           *     #    ⎇
-        tap_or_shift(KC_PAST, KC_HASH);
-        return false;
-      case MTCA: //                          ⌃a         ⌃⎇
-        tap_code16(C(KC_A));
-        return false;
-    }
-  }
-
   if (keycode >= FIRST_MACRO && keycode <= LAST_MACRO) {
     if (pressed) { dispatch_macro(keycode); }
+    return false;
+  }
+
+  if (keycode >= FIRST_UNICODE_MACRO && keycode <= LAST_UNICODE_MACRO) {
+    if (pressed) { dispatch_unicode_macro(keycode); }
     return false;
   }
 
@@ -42,28 +31,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return false;
   }
 
-  switch (keycode) {
-    // unicode
-    case M_DQL:
-      if (pressed) {
-        send_unicode_string(" “");
+  if (pressed && record->tap.count) { // custom mod/layer-taps
+    switch (keycode) { //              tap  shift hold
+      case L2: //                       _          L2
+        tap_code16(KC_UNDS);
         return false;
-      }
-      break;
-    case M_DQR:
-      if (pressed) {
-        send_unicode_string("” ");
+      case SFT1: //                     @     &    ⇧₁
+        tap_or_shift(KC_AT, KC_AMPR);
         return false;
-      }
-      break;
-
-    // effects
-    case QK_BOOT: // effect on reset
-      if (pressed) {
-        rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
-      }
-      break;
+      case MTA: //                      *     #    ⎇
+        tap_or_shift(KC_PAST, KC_HASH);
+        return false;
+      case MTCA: //                     ⌃a         ⌃⎇
+        tap_code16(C(KC_A));
+        return false;
+    }
   }
+
   return true;
 }
 

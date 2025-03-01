@@ -11,6 +11,8 @@ char* macros[] = {
   " !== ",
   " <= ",
   " >= ",
+  "gT", // vim previous tab
+  "gt", // vim next tab
 };
 
 void dispatch_macro(uint16_t key_code) {
