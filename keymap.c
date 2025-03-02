@@ -34,7 +34,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (pressed && record->tap.count) { // custom mod/layer-taps
     switch (keycode) { //              tap  shift hold
       case L2: //                       _          L2
-        tap_code16(KC_UNDS);
+        tap_or_shift(KC_UNDS, 0);
         return false;
       case SFT1: //                     @     &    ⇧₁
         tap_or_shift(KC_AT, KC_AMPR);
@@ -43,7 +43,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_or_shift(KC_PAST, KC_HASH);
         return false;
       case MTCA: //                     ⌃a         ⌃⎇
-        tap_code16(C(KC_A));
+        tap_or_shift(C(KC_A), 0);
         return false;
     }
   }

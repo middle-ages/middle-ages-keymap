@@ -15,7 +15,7 @@ const char* PROGMEM help_lines[] = {
   "| Ctrl  |  Gui  |  Alt  |       |Layer 1|Layer 2|Layer 3|Layer 4|       |Layer 5|CtrlAlt|  Meh  |",
   "|Ctrl-wq|       |       |       |       |       |       |       |       |       |       |Esc :  |Base layer double tap",
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
-  "|       |       |       |       |       |       |       |       |       |       |       |       |",
+  "|       |       |       |       |       |       |       |       |       |       |       |SCtrl-P|",
   "|Ctrl-w |       |       |       |       |       |       |       |       |       |       |TmuxEsc|",
   "|CapsWrd|   (   |  )    |   6   |   7   |   9   |CtlWLft|CtlWDwn|CtlWUp |CtlWRgt|   {   |   }   |1. Lower",
   "|       |       |       |   4   |   5   |   6   |       |       |       |       |   [   |   ]   |",
@@ -47,7 +47,7 @@ const char* PROGMEM help_lines[] = {
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
   "|       |       |       |       |       |       |       |       |       |       |       | Boot  |8. Adjust",
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
-  "|       |       |       |       |       |       |       |       |       |       |Bright+|Bright-|",
+  "|       |       |       |       |       |       |       | Help  |       |       |Bright+|Bright-|",
   "| Sleep |       |       |       |       |       |       |       |       |TTermPr|TTerm- |TTerm+ |"
 };
 

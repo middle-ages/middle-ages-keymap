@@ -32,7 +32,7 @@ enum planck_keycodes {                  // layers toggle keys
   HELP6,                                //       7
   HELP7,                                //       8
   HELP8,                                //
-                                        // mod-tap keycodes
+                                        // custom mod-tap keycodes
                                         //         TAP              SHIFT
   ATAMP,                                //          @                 &
   ATHAS,                                //          *                 #
@@ -70,15 +70,16 @@ enum {                                  // tap-dance keycodes               TAP�
   BEQ                                   //          \       ⌥         |     ⎋:
 };                                      //
                                         //
-#define FIRST_MACRO         CWLFT       // first and last macro for macro dispatch
-#define LAST_MACRO          M_VTR       //
-#define FIRST_UNICODE_MACRO M_DQL       // first and last unicode macros for unicode macro dispatch
-#define LAST_UNICODE_MACRO  M_4_12      //
-                                        // layer-tap keys
-                                        //
                                         //         TAP     HOLD     SHIFT
-#define L1     LT(_L1_LOWER,   KC_PPLS) //          +     L1_LOWER
+                                        //
+                                        // custom mod-tap keys
 #define L2     LT(_L2_OS,      UNDER)   //          _     L2_OS
+#define SFT1   SFT_T(ATAMP)             //          @     ⇧           &
+#define MTA    ALT_T(ATHAS)             //          *     ⎇           #
+#define MTCA   LCA_T(CTRLA)             //          ⌃a    ⌃⎇
+                                        //
+                                        // layer mod-tap keys
+#define L1     LT(_L1_LOWER,   KC_PPLS) //          +     L1_LOWER
 #define L3     LT(_L3_SYM,     KC_SPC)  //          ␣     L3_SYM
 #define L4     LT(_L4_RAISE,   KC_PMNS) //          -     L4_RAISE
 #define L5     LT(_L5_UNICODE, KC_F19)  //        F19     L5_UNICODE
@@ -86,12 +87,9 @@ enum {                                  // tap-dance keycodes               TAP�
 #define HELP   OSL(_L9_HELP)            // one-shot help layer
                                         // mod-tap keys
                                         //         TAP     HOLD     SHIFT
-#define SFT1   SFT_T(ATAMP)             //          @     ⇧           &
 #define SFT2   SFT_T(KC_Z)              //          z     ⇧           Z
 #define SFT3   SFT_T(KC_SLSH)           //          /     ⇧           ?
 #define SFT4   SFT_T(KC_QUOT)           //          '     ⇧           "
-#define MTA    ALT_T(ATHAS)             //          *     ⎇           #
-#define MTCA   LCA_T(CTRLA)             //          ⌃a    ⌃⎇
 #define MTCS   C_S_T(KC_ENT)            //          ⎆     ⇪
                                         // mods inside layers
 #define MC     KC_LCTL                  //                ⌃
@@ -131,3 +129,11 @@ enum {                                  // tap-dance keycodes               TAP�
 #define AF4    A(KC_F4)                 //          ⎇F4
 #define SF5    S(KC_F5)                 //          ⇧F5
 
+#define FIRST_MACRO         CWLFT       // first and last macro for macro dispatch
+#define LAST_MACRO          M_VTR       //
+                                        //
+#define FIRST_UNICODE_MACRO M_DQL       // first and last unicode macros for unicode macro dispatch
+#define LAST_UNICODE_MACRO  M_4_12      //
+                                        //
+#define FIRST_CUSTOM MTAP   L2          // first and last custom mod-tap and layer-tap keys
+#define LAST_CUSTOM_MTAP    MTCA        //

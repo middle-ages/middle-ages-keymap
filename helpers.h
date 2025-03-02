@@ -28,7 +28,7 @@ int decode_dance(tap_dance_state_t *state) {
 // tap first given code or second if shift is pressed
 void tap_or_shift(uint16_t tap, uint16_t shift) {
   if (get_mods() & MOD_MASK_SHIFT) {
-    tap_code16(shift);
+    tap_code16(shift == 0 ? tap: shift);
   } else {
     tap_code16(tap);
   }
