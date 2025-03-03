@@ -23,12 +23,12 @@ const char* PROGMEM help_lines[] = {
   "|       |       |       |   0   |       |CtlBTab|CtlTab |       |       |       |       |       |",
   "|       |       |       |       |       |       |       |       |       |       |       |Gui-Tab|2. Os",
   "|       |       |SGui-s |       |       |       |CGuiLft|CGuiDwn|CGuiUp |CGuiRgt|       |       |",
-  "|       |       |       |       |       |       |SCtrl-6|Ctrl-o |       |       |       |       |",
-  "|       |       |       |       |       |       |AltBTab|AltTab |       |       |       |       |",
+  "|       |       |       |       |       |       |Ctrl-o |       |       |       |       |       |",
+  "|       |       |       |       |       |       |  gT   |  gt   |       |       |       |       |",
   "|       |       |       |       |       |       |       |       |       |       |       |       |3. Sym",
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
   "|       |       |       |       |       |   %   |   =   |   `   |   ^   |       |       |       |",
-  "|       |       |       |       |       |       |       |  gT   |  gt   |       |       |       |",
+  "|       |       |       |       |       |       |       |AltBTab|AltTab |       |       |       |",
   "|       |       |       |  F6   |  F7   |  F9   |       |       |       |       |       |       |4. Raise",
   "|       |       |       |  F4   |  F5   |  F6   |       |       |       |       |       |  - >  |",
   "|       |  F12  |  F11  |  F1   |  F2   |  F3   |       |       |  < =  |  > =  | ! = = |  = >  |",
@@ -47,7 +47,7 @@ const char* PROGMEM help_lines[] = {
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
   "|       |       |       |       |       |       |       |       |       |       |       | Boot  |8. Adjust",
   "|       |       |       |       |       |       |       |       |       |       |       |       |",
-  "|       |       |       |       |       |       |       | Help  |       |       |Bright+|Bright-|",
+  "|       |       |       |       |       |       | Help  |       |       |       |Bright+|Bright-|",
   "| Sleep |       |       |       |       |       |       |       |       |TTermPr|TTerm- |TTerm+ |"
 };
 
