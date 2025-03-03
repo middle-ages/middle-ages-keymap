@@ -22,6 +22,7 @@ enum planck_keycodes {                  // layers toggle keys
   L6,                                   //         6. NAV
                                         //         7. MOUSE (toggled in tap-dance)
                                         //         8. ADJUST = LOWER + RAISE
+                                        //
                                         // layer help keys on _L9_HELP
   HELP0,                                // layer 1 help
   HELP1,                                //       2
@@ -38,7 +39,8 @@ enum planck_keycodes {                  // layers toggle keys
   ATHAS,                                //          *                 #
   UNDER,                                //          _                 ⌃
   CTRLA,                                //         ⌃a
-                                        // macros
+                                        //
+  FIRST_MACRO,                          // macros
   CWLFT,                                //  1. ⌃w←
   CWRGT,                                //  2. ⌃w→
   CWUP,                                 //  3. ⌃w↑
@@ -51,15 +53,21 @@ enum planck_keycodes {                  // layers toggle keys
   M_MEQL,                               // 10. “>” “=”
   M_VTL,                                // 11. “g” “T”
   M_VTR,                                // 12. “g” “t”
-                                        // unicode macros
+  LAST_MACRO,                           //
+                                        //
+  FIRST_UNICODE_MACRO,                  // unicode macros
   M_DQL,                                //  • “
   M_DQR,                                //  • ”
   M_SQL,                                //  • ‘
   M_SQR,                                //  • ’
+  M_NO,                                 //  • ❌
+  M_YES,                                //  • ✅
+                                        //
   M_1_1, M_1_2, M_1_3, M_1_4, M_1_5, M_1_6, M_1_7, M_1_8, M_1_9, M_1_10, M_1_11, M_1_12,
   M_2_1, M_2_2, M_2_3, M_2_4, M_2_5, M_2_6, M_2_7, M_2_8, M_2_9, M_2_10, M_2_11, M_2_12,
   M_3_1, M_3_2, M_3_3, M_3_4, M_3_5, M_3_6, M_3_7, M_3_8, M_3_9, M_3_10, M_3_11, M_3_12,
                                                                                  M_4_12,
+  LAST_UNICODE_MACRO,                   //
 };                                      //
                                         //
 enum {                                  // tap-dance keycodes               TAP²           TAP³
@@ -128,12 +136,3 @@ enum {                                  // tap-dance keycodes               TAP�
 #define SGS    S(G(KC_S))               //          ⇧◆s
 #define AF4    A(KC_F4)                 //          ⎇F4
 #define SF5    S(KC_F5)                 //          ⇧F5
-
-#define FIRST_MACRO         CWLFT       // first and last macro for macro dispatch
-#define LAST_MACRO          M_VTR       //
-                                        //
-#define FIRST_UNICODE_MACRO M_DQL       // first and last unicode macros for unicode macro dispatch
-#define LAST_UNICODE_MACRO  M_4_12      //
-                                        //
-#define FIRST_CUSTOM MTAP   L2          // first and last custom mod-tap and layer-tap keys
-#define LAST_CUSTOM_MTAP    MTCA        //

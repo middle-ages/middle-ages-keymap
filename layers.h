@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *     Sym₃ ┏━━━┯━━━┯━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
  *          ┃   ┊ ‘ ┊ ’ ┊                                   ┃
  *          ┃   ├───┼───┤                           ┌───┬───┨
- *          ┃   ┊⇪v ┊⇪c ┊                           ┊❌ ┊ ❎┃
+ *          ┃   ┊⇪v ┊⇪c ┊                           ┊❌ ┊✅ ┃
  *          ┃   └───┴───┘       ┌───┬───┬───┬───┐   └───┴───┨
  *          ┃                   ┊ % ┊ = ┊ ` ┊ ^ ┊           ┃
  *          ┃                   └───┼───┼───┼───┤           ┃
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_L3_SYM] = LAYOUT_planck_grid(
   _______, M_SQL,   M_SQR,   _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, SCC,     SCV,     _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  _______, SCC,     SCV,     _______, _______, _______, _______, _______, _______, _______, M_NO,    M_YES,
   _______, _______, _______, _______, _______, KC_PERC, KC_EQL,  KC_GRV,  KC_CIRC, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, M_VTL,   M_VTR,   _______, _______, _______
 ),
@@ -185,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // clang-format on
 
 /**
- *   ⇧ shift       ⌃ ctrl         ⎇ alt         ◆ gui           ⇪ ⌃⇧          ⌥ ⇧⎇          ✦ ⇪⎇        vwq ⎋:wq⎆     Sel ⌃a ⌃c       Rst KC_BOOT
+ *   ⇧ shift       ⌃ ctrl         ⎇ alt         ◆ gui           ⇪ ⌃⇧          ⌥ ⇧⎇          ✦ ⇪⎇        vwq ⎋:wq⎆     Rst KC_BOOT
  *   ← KC_LEFT     ↓ KC_DOWN      ↑ KC _UP      → KC_RGHT       ↖ KC_HOME     ⇞ KC_PGUP     ⇟ KC_PGDN     ↗ KC_END      ⟳ S(KC_F5)      ⎈ leader-negate
  * 🖯 ← MS_WHLL   🖯 ↓ MS_WHLD    🖯 ↑ MS_WHLU   🖯 → MS_WHLR     🖱← MS_LEFT   🖱↓ MS_DOWN   🖱↑ MS_UP     🖱→ MS_RGHT     ⎀ KC_INS        ⎆ KC_ENT
  * Mb₁ MS_BTN1   Mb₂ MS_BTN2    Mb₃ MS_BTN3    ⎄  KC_F19        ⎉ KC_BRK      ▤ KC_APP     ⎙  KC_PSCR     ☾ KC_SLEP     ␣ KC_SPC        ⎋ KC_ESC
