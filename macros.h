@@ -16,5 +16,6 @@ char* macros[] = {
 };
 
 void dispatch_macro(uint16_t key_code) {
-  send_string(macros[key_code - FIRST_MACRO]);
+  send_string(macros[key_code - FIRST_MACRO - 1]);
 }
+
