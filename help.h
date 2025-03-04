@@ -54,19 +54,21 @@ const char* PROGMEM help_lines[] = {
 void send_layer_lines(uint8_t from) {
   int i = 0;
   for (i = 0; i < 4; ++i) {
+    set_step_light(i);
     send_string(help_lines[from + i]);
-    SEND_STRING("\n");
+    SEND_STRING_DELAY("\n", 50);
   }
 }
 
 void dispatch_help(uint16_t key_code) {
   rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
-  rgblight_setrgb(CLR_PINK);
+  rgblight_setrgb(CLR_DIM);
   int index = key_code - HELP0;
   if (index == 0) {
     int i = 0;
     for (i = 0; i < 4; ++i) {
       send_layer_lines(i * 4);
+      rgblight_setrgb(CLR_DIM);
     }
   } else {
     send_layer_lines((index - 1) * 4 + 4 * 4);

@@ -130,8 +130,6 @@ enum {                                  // tap-dance keycodes               TAP�
 #define TDCPA TD(CPA)                   //         ⌃p       ✦               ⌃a⎋
 #define TDBEQ TD(BEQ)                   //          \       ⌥         |     ⎋:
                                         // modded keys
-#define SCC    S(C(KC_C))               //          ⇪c
-#define SCV    S(C(KC_V))               //          ⇪v
 #define CS6    LCTL(KC_CIRC)            //          ⇪6
 #define SGS    S(G(KC_S))               //          ⇧◆s
 #define AF4    A(KC_F4)                 //          ⎇F4

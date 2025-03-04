@@ -54,11 +54,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // set mod indicator
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (!is_caps_word_on()) {
-    set_mod_indicator(
-      get_mods() & MOD_MASK_SHIFT,
-      get_mods() & MOD_MASK_CTRL,
-      get_mods() & MOD_MASK_ALT
-    );
+    set_mod_indicator();
   }
 }
 

@@ -13,44 +13,52 @@ void l7_finished(tap_dance_state_t *state, void *user_data) {
   l7_tap_state.state = dispatch_dance(
     state, KC_ESC, KC_GRV, SS_LCTL("w") "q", "\e:wa\n:qa\n", _L7_MOUSE, 0, 0
   );
+  set_mod_indicator();
 }
 
 void l7_reset(tap_dance_state_t *state, void *user_data) {
   if (l7_tap_state.state == SINGLE_HOLD) { layer_off(_L7_MOUSE); }
   l7_tap_state.state = 0;
+  set_mod_indicator();
 }
 
 void ctrl_finished(tap_dance_state_t *state, void *user_data) {
   ctrl_tap_state.state = dispatch_dance(
     state, KC_DLR, KC_EXLM, SS_LCTL("w"), NULL, 0, 0, KC_LCTL
   );
+  set_mod_indicator();
 }
 
 void ctrl_reset(tap_dance_state_t *state, void *user_data) {
   if (ctrl_tap_state.state == SINGLE_HOLD) { unregister_code16(KC_LCTL); }
   ctrl_tap_state.state = 0;
+  set_mod_indicator();
 }
 
 void meh_finished(tap_dance_state_t *state, void *user_data) {
   meh_tap_state.state = dispatch_dance(
     state, C(KC_P), S(C(KC_P)), SS_LCTL("a") "\e", NULL, 0, 0, KC_MEH
   );
+  set_mod_rgb(CLR_WHITE);
 }
 
 void meh_reset(tap_dance_state_t *state, void *user_data) {
   if (meh_tap_state.state == SINGLE_HOLD) { unregister_code16(KC_MEH); }
   meh_tap_state.state = 0;
+  set_mod_indicator();
 }
 
 void salt_finished(tap_dance_state_t *state, void *user_data) {
   salt_tap_state.state = dispatch_dance(
     state, KC_BSLS, KC_PIPE, "\e:", NULL, 0, MOD_LSFT | MOD_LALT, 0
   );
+  set_mod_indicator();
 }
 
 void salt_reset(tap_dance_state_t *state, void *user_data) {
   if (salt_tap_state.state == SINGLE_HOLD) { unregister_mods(MOD_LSFT | MOD_LALT); }
   salt_tap_state.state = 0;
+  set_mod_indicator();
 }
 
 tap_dance_action_t tap_dance_actions[] = {
