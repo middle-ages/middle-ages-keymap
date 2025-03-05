@@ -2,6 +2,8 @@
 
 QMK configuration for a Planck orthogonal 4×12 keyboard
 
+[planck](planck.png)
+
 ## Using
 
 Create a QMK _userspace_ dir as [explained
