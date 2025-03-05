@@ -2,7 +2,7 @@
 
 QMK configuration for a Planck orthogonal 4×12 keyboard
 
-[planck](planck.png)
+![planck](planck.png)
 
 ## Using
 
