@@ -36,6 +36,13 @@ void set_layer_rgb(uint8_t r, uint8_t g, uint8_t b) {
   rgblight_setrgb_range(r, g, b, LAYER_LED_BEGIN, LAYER_LED_END);
 }
 
+void set_gui_mod_rgb(void) {
+  int i = MOD_LED_BEGIN;
+  rgblight_setrgb_range(CLR_PINK, i + 0, i + 1);
+  rgblight_setrgb_range(CLR_PINK, i + 3, i + 4);
+  rgblight_setrgb_range(CLR_PINK, i + 4, i + 5);
+}
+
 /**
  * S (shift)  C (ctrl)   A (alt)
  *    ❎         ❌         ❌  RED
@@ -51,13 +58,18 @@ void set_mod_indicator(void) {
   bool shift = get_mods() & MOD_MASK_SHIFT;
   bool ctrl = get_mods() & MOD_MASK_CTRL;
   bool alt = get_mods() & MOD_MASK_ALT;
+  bool gui = get_mods() & MOD_MASK_GUI;
 
-  if (!shift && !ctrl && !alt) {
+  if (!shift && !ctrl && !alt && !gui) {
     set_mod_rgb(CLR_DIM);
   } else if (shift && !ctrl && alt) {
     set_mod_rgb(CLR_PURPLE);
   } else {
     set_mod_rgb(shift ? 0xFF: 0x00, ctrl ? 0xFF: 0x00, alt ? 0xFF: 0x00);
+  }
+
+  if (gui) {
+    set_gui_mod_rgb();
   }
 }
 
