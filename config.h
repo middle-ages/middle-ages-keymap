@@ -20,6 +20,9 @@
 #define RGBLIGHT_EFFECT_SNAKE
 #define RGBLIGHT_EFFECT_TWINKLE
 
+
+#define AUDIO_INIT_DELAY
+
 #define COIN_SND      E__NOTE(_A5), HD_NOTE(_E6),
 #define ONE_UP_SND    Q__NOTE(_E6), Q__NOTE(_G6), Q__NOTE(_E7),  Q__NOTE(_C7),  Q__NOTE(_D7),  Q__NOTE(_G7),
 #define MARIO_SND     Q__NOTE(_E5), H__NOTE(_E5), H__NOTE(_E5),  Q__NOTE(_C5),  H__NOTE(_E5),  W__NOTE(_G5), Q__NOTE(_G4),
