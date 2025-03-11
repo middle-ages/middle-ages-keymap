@@ -4,6 +4,7 @@ static tap l7_tap_state   = {.is_press_action = true, .state = 0};
 static tap ctrl_tap_state = {.is_press_action = true, .state = 0};
 static tap meh_tap_state  = {.is_press_action = true, .state = 0};
 static tap salt_tap_state = {.is_press_action = true, .state = 0};
+static tap sft4_tap_state = {.is_press_action = true, .state = 0};
 
 void dance_semicolon(tap_dance_state_t *state, void *user_data) {
   SEND_STRING(state->count == 1 ? ";": state->count == 2 ? ":" : "::");
@@ -50,14 +51,27 @@ void meh_reset(tap_dance_state_t *state, void *user_data) {
 
 void salt_finished(tap_dance_state_t *state, void *user_data) {
   salt_tap_state.state = dispatch_dance(
-    state, KC_BSLS, KC_PIPE, "\e:", NULL, 0, MOD_LSFT | MOD_LALT, 0
+    state, KC_BSLS, KC_PIPE, "\e:", NULL, 0, MOD_LSFT, 0
   );
   set_mod_indicator();
 }
 
 void salt_reset(tap_dance_state_t *state, void *user_data) {
-  if (salt_tap_state.state == SINGLE_HOLD) { unregister_mods(MOD_LSFT | MOD_LALT); }
+  if (salt_tap_state.state == SINGLE_HOLD) { unregister_mods(MOD_LSFT); }
   salt_tap_state.state = 0;
+  set_mod_indicator();
+}
+
+void sft4_finished(tap_dance_state_t *state, void *user_data) {
+  sft4_tap_state.state = dispatch_dance(
+    state, KC_QUOT, S(KC_QUOT), SS_LSFT(SS_LCTL("p")), "''", 0, MOD_LSFT, 0
+  );
+  set_mod_indicator();
+}
+
+void sft4_reset(tap_dance_state_t *state, void *user_data) {
+  if (sft4_tap_state.state == SINGLE_HOLD) { unregister_mods(MOD_LSFT); }
+  sft4_tap_state.state = 0;
   set_mod_indicator();
 }
 
@@ -75,6 +89,9 @@ tap_dance_action_t tap_dance_actions[] = {
   [CPA] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, meh_finished, meh_reset),
 
   // tap=\, shift=|, hold=⌥, tap₂=⎋:
-  [BEQ] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, salt_finished, salt_reset)
+  [BEQ] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, salt_finished, salt_reset),
+
+  // tap=\, shift=", hold=⇧, tap₂=⇪p
+  [SFT4] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, sft4_finished, sft4_reset)
 };
 

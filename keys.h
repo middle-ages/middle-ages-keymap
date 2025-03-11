@@ -75,7 +75,8 @@ enum {                                  // tap-dance keycodes               TAP�
   ETQ,                                  //          ⎋     L7_MOUSE    ~     ⌃wq         ⎋:wa\nqa\n
   DRX,                                  //          $       ⌃         !     ⌃w
   CPA,                                  //         ⌃p       ✦               ⌃a⎋
-  BEQ                                   //          \       ⌥         |     ⎋:
+  BEQ,                                  //          \       ⌥         |     ⎋:
+  SFT4                                  //          '       ⇧         "     ⇪p
 };                                      //
                                         //
                                         //         TAP     HOLD     SHIFT
@@ -97,7 +98,6 @@ enum {                                  // tap-dance keycodes               TAP�
                                         //         TAP     HOLD     SHIFT
 #define SFT2   SFT_T(KC_Z)              //          z     ⇧           Z
 #define SFT3   SFT_T(KC_SLSH)           //          /     ⇧           ?
-#define SFT4   SFT_T(KC_QUOT)           //          '     ⇧           "
 #define MTCS   C_S_T(KC_ENT)            //          ⎆     ⇪
                                         // mods inside layers
 #define MC     KC_LCTL                  //                ⌃
@@ -124,11 +124,12 @@ enum {                                  // tap-dance keycodes               TAP�
 #define ATB    A(KC_TAB)                //          ⎇⇥
 #define GTAB   G(KC_TAB)                //          ◆⇥
                                         // tap-dance keys
-#define TDCOS TD(COS)                   //          :                 ;      ;             ::
-#define TDETQ TD(ETQ)                   //          ⎋     L7_MOUSE    ~     ⌃wq         ⎋:wa\n:qa\n
-#define TDDRX TD(DRX)                   //          $      CTRL       !     ⌃w
-#define TDCPA TD(CPA)                   //         ⌃p       ✦               ⌃a⎋
-#define TDBEQ TD(BEQ)                   //          \       ⌥         |     ⎋:
+#define TDCOS  TD(COS)                  //          :                 ;      ;             ::
+#define TDETQ  TD(ETQ)                  //          ⎋     L7_MOUSE    ~     ⌃wq         ⎋:wa\n:qa\n
+#define TDDRX  TD(DRX)                  //          $      CTRL       !     ⌃w
+#define TDCPA  TD(CPA)                  //         ⌃p       ✦               ⌃a⎋
+#define TDBEQ  TD(BEQ)                  //          \       ⌥         |     ⎋:
+#define TDSFT4 TD(SFT4)                 //          '       ⇧         "     ⇪p
                                         // modded keys
 #define CS6    LCTL(KC_CIRC)            //          ⇪6
 #define SGS    S(G(KC_S))               //          ⇧◆s
